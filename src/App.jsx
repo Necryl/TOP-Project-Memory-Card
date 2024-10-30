@@ -1,8 +1,14 @@
 import "./App.css";
 import Card from "./Card.jsx";
 import { useState, useRef } from "react";
+import { Pokedex } from "pokeapi-js-wrapper";
 
 const randomSort = () => Math.random() - 0.5;
+const P = new Pokedex();
+function getRandomPokemon() {
+  const totalPokemon = 898;
+  return Math.floor(Math.floor(Math.random() * totalPokemon) + 1);
+}
 
 const cards = (() => {
   const data = [];
