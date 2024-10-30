@@ -1,5 +1,5 @@
 .card {
-  border: 0.2em solid white;
+  border: 0.2em solid rgba(255, 255, 255, 0.513);
   border-radius: 0.5em;
   aspect-ratio: 1/1;
 
@@ -7,4 +7,10 @@
   place-content: center;
 
   background-size: cover;
+}
+
+.card:hover {
+  border-color: white;
+  outline: 0.2em solid white;
+  outline-offset: -0.1em;
 }
