@@ -19,7 +19,7 @@ let tenRandomPokemon = (() => {
   const data = [];
   for (let i = 0; i < 10; i++) {
     data.push({
-      name: `Pokemon ${i + 1}}`,
+      name: `loading image`,
       image: loadingGif,
       index: i,
     });
@@ -58,27 +58,25 @@ function App() {
   const [score, setScore] = useState(0);
   const highScore = useRef(0);
   const memory = useRef([]);
-  const data = tenRandomPokemon;
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(tenRandomPokemon);
   if (score > highScore.current) {
     highScore.current = score;
   }
+  const loading = data[0].name === "loading image";
   useEffect(() => {
-    getTenPokemon().then(() => {
-      setLoading(false);
-    });
-  }, [loading]);
+    if (loading) {
+      getTenPokemon().then((results) => {
+        setData(results);
+      });
+    }
+  }, []);
   function renderCards() {
     console.log("data", data);
     return data.sort(randomSort).map((cardData, i) => {
       console.log("cardData", cardData);
       return (
-        <Card index={i} key={i} clicked={cardClicked}>
-          <img
-            className={loading ? "loading" : ""}
-            src={loading ? loadingGif : cardData.image}
-            alt={loading ? "loading image" : cardData.name}
-          />
+        <Card index={cardData.id} key={i} clicked={cardClicked}>
+          <img src={cardData.image} alt={cardData.name} />
         </Card>
       );
     });
