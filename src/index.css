@@ -23,8 +23,9 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
+  display: grid;
+  padding: 1em;
+  margin: 0%;
 }
 
 h1 {
