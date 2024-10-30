@@ -2,6 +2,16 @@ import "./App.css";
 import Card from "./Card.jsx";
 import { useState, useRef } from "react";
 
+const randomSort = () => Math.random() - 0.5;
+
+const cards = (() => {
+  const data = [];
+  for (let i = 0; i < 10; i++) {
+    data.push({ text: `Card ${i + 1}`, index: i });
+  }
+  return data;
+})();
+
 function App() {
   const [score, setScore] = useState(0);
   const highScore = useRef(0);
@@ -10,15 +20,13 @@ function App() {
     highScore.current = score;
   }
   function renderCards() {
-    let result = [];
-    for (let i = 0; i < 10; i++) {
-      result.push(
-        <Card index={i} key={i} clicked={cardClicked}>
-          Card {i + 1}
+    return cards.sort(randomSort).map((cardData, i) => {
+      return (
+        <Card index={cardData.index} key={i} clicked={cardClicked}>
+          {cardData.text}
         </Card>
       );
-    }
-    return result;
+    });
   }
   function cardClicked(index) {
     if (!memory.current.includes(index)) {
