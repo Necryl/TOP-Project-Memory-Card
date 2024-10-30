@@ -1,23 +1,38 @@
 import "./App.css";
 import Card from "./Card.jsx";
+import { useState, useRef } from "react";
 
 function App() {
+  const [score, setScore] = useState(0);
+  const highScore = useRef(0);
+  const memory = useRef([]);
+  if (score > highScore.current) {
+    highScore.current = score;
+  }
   function renderCards() {
     let result = [];
     for (let i = 0; i < 10; i++) {
-      console.log(i);
-      result.push(<Card key={i}>Card {i + 1}</Card>);
+      result.push(
+        <Card index={i} key={i} clicked={cardClicked}>
+          Card {i + 1}
+        </Card>
+      );
     }
-    console.log(result);
     return result;
+  }
+  function cardClicked(index) {
+    if (!memory.current.includes(index)) {
+      memory.current = [...memory.current, index];
+      setScore((score) => score + 1);
+    }
   }
   return (
     <div id="app">
       <div className="nav">
         <h1>Memory Game</h1>
         <div className="scores">
-          <h3 className="score">Score:</h3>
-          <h3 className="highScore">Highest Score:</h3>
+          <h3 className="score">Score: {score}</h3>
+          <h3 className="highScore">Best Score: {highScore.current}</h3>
         </div>
       </div>
       <p>

@@ -1,7 +1,17 @@
 import "./Card.css";
 
-function Card({ children }) {
-  return <div className="card">{children}</div>;
+// eslint-disable-next-line react/prop-types
+function Card({ children, index, clicked }) {
+  return (
+    <div
+      className="card"
+      onClick={() => {
+        clicked(index);
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 export default Card;
