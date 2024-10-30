@@ -24,6 +24,9 @@ function App() {
     if (!memory.current.includes(index)) {
       memory.current = [...memory.current, index];
       setScore((score) => score + 1);
+    } else {
+      setScore(0);
+      memory.current = [];
     }
   }
   return (
