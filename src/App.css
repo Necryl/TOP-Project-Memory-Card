@@ -10,11 +10,15 @@
   align-items: center;
   gap: 2em;
   flex-wrap: wrap;
-  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
-
-.nav h1 {
+h1,
+h3,
+p {
   margin: 0%;
+}
+.nav h1 {
   flex: auto;
 }
 
@@ -27,5 +31,9 @@
 
 #app {
   display: grid;
-  gap: 1em;
+  gap: 2em;
+}
+
+#app > p {
+  padding-left: 1em;
 }

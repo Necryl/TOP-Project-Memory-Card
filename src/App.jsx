@@ -20,6 +20,9 @@ function App() {
           <h3 className="highScore">Highest Score:</h3>
         </div>
       </div>
+      <p>
+        Click on each card <i>no more than once</i> to win the game!
+      </p>
       <div className="board">{renderCards()}</div>
     </div>
   );
