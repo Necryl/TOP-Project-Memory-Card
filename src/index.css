@@ -23,9 +23,10 @@ a:hover {
 }
 
 body {
+  margin: 0%;
+  height: 100%;
   display: grid;
   padding: 1em;
-  margin: 0%;
 }
 
 h1 {
@@ -63,4 +64,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+* {
+  box-sizing: border-box;
 }

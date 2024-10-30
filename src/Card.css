@@ -20,3 +20,8 @@
   outline: 0.2em solid white;
   outline-offset: -0.1em;
 }
+
+.card:active {
+  scale: 70%;
+  transition: 150ms;
+}

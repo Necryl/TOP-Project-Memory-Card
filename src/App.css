@@ -1,7 +1,7 @@
 .board {
   display: grid;
   gap: 1vw;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .nav {

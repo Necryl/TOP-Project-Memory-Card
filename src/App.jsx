@@ -42,7 +42,6 @@ async function getTenPokemon() {
       let list = await pokeList;
       let pokeName = list[id];
       const poke = await P.getPokemonByName(pokeName);
-      console.log("poke", poke);
       return {
         id: id,
         name: pokeName,
@@ -69,11 +68,9 @@ function App() {
         setData(results);
       });
     }
-  }, []);
+  }, [loading]);
   function renderCards() {
-    console.log("data", data);
     return data.sort(randomSort).map((cardData, i) => {
-      console.log("cardData", cardData);
       return (
         <Card index={cardData.id} key={i} clicked={cardClicked}>
           <img src={cardData.image} alt={cardData.name} />
