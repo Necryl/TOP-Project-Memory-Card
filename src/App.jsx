@@ -12,10 +12,16 @@ function App() {
     return result;
   }
   return (
-    <>
-      <h1>Memory Game</h1>
+    <div id="app">
+      <div className="nav">
+        <h1>Memory Game</h1>
+        <div className="scores">
+          <h3 className="score">Score:</h3>
+          <h3 className="highScore">Highest Score:</h3>
+        </div>
+      </div>
       <div className="board">{renderCards()}</div>
-    </>
+    </div>
   );
 }
 

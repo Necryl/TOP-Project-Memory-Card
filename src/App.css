@@ -3,3 +3,29 @@
   gap: 1vw;
   grid-template-columns: repeat(5, 1fr);
 }
+
+.nav {
+  display: flex;
+  place-content: space-between;
+  align-items: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+.nav h1 {
+  margin: 0%;
+  flex: auto;
+}
+
+.scores {
+  display: flex;
+  gap: 1em;
+  place-content: space-between;
+  flex: auto;
+}
+
+#app {
+  display: grid;
+  gap: 1em;
+}
