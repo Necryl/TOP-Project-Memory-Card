@@ -1,5 +1,5 @@
 import "./App.css";
-import loadingGif from "./assets/loading.gif";
+import loadingGif from "/loading.gif";
 import Card from "./Card.jsx";
 import { useState, useRef, useEffect } from "react";
 import { Pokedex } from "pokeapi-js-wrapper";
